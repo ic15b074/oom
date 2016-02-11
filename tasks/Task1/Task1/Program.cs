@@ -10,6 +10,7 @@ namespace Task1
     {
         static void Main(string[] args)
         {
+            Console.BackgroundColor = ConsoleColor.DarkRed;
             var a = "Hello World";
             var b = "!";
             Console.WriteLine("{1}{0}{1}", a,b); 
