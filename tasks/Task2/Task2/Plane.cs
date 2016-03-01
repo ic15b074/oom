@@ -6,25 +6,32 @@ using System.Threading.Tasks;
 
 namespace Task2
 {
-    class Plane
-    {
 
+    class Plane : IAircraft
+    {
         private int maxFuel;
 
-        public Plane(string planeNumber, int maxFuel){
-
-            this.PlaneNummber = planeNumber;
+        //Konstruktor (name muss identisch wie die klasse sein)
+        public Plane(string planeNumber, int maxFuel)
+        {
+            this.PlaneNumber = planeNumber;
             this.maxFuel = maxFuel;
         }
 
-        
-        public string PlaneNummber { get;}
-        public int NummberOfSeats { get; set; }
+        // holen von daten
+        public string PlaneNumber { get; set; }
+        //holen & ändern
+        public int NumberOfSeats { get; set; }
 
+
+
+
+        //funktion zu ausgabe von daten(die eigentlich privat ist)
         public int ShowMaxFuelInfo()
         {
             return maxFuel;
         }
-        
+
     }
 }
+
