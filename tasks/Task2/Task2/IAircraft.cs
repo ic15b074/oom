@@ -8,6 +8,7 @@ namespace Task2
 {
     interface IAircraft
     {
+
         string PlaneNumber { get; set; }
         int NumberOfSeats { get; set;  }
     }

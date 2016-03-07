@@ -8,6 +8,13 @@ namespace Task2
 {
     class SailPlane : IAircraft 
     {
+
+        public SailPlane(string planeNumber, int numberOfSeats)
+        {
+            this.PlaneNumber = planeNumber;
+            this.NumberOfSeats = numberOfSeats;
+        }
+
         // holen von daten
         public string PlaneNumber { get; set; }
         //holen & ändern
