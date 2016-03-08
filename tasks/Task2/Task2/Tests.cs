@@ -13,10 +13,9 @@ namespace Task2
     [TestFixture]
     class Tests
     {
+
         [Test]
-
-
-        public void TestsPlane()
+        public void TestsPlaneConstructor()
         {
             // Alowe to Create Plane
             var example = new Plane("3HF543", 250);
@@ -26,6 +25,15 @@ namespace Task2
 
             // Alowe to Get NumberOfSeats
             Assert.IsTrue(example.NumberOfSeats == 0);
+        }
+
+
+        [Test]
+        public void TestsPlane()
+        {
+            // Alowe to Create Plane
+            var example = new Plane("3HF543", 250);
+
 
             // Alowe to change NumberOfSeats
             example.NumberOfSeats = 300;
@@ -35,7 +43,9 @@ namespace Task2
             Assert.IsTrue(example.ShowMaxFuelInfo() == 250);
         }
 
-        public void TestseSailPlane()
+       [Test]
+
+        public void TestseSailPlaneConstructor()
         {
             // Alowe to Create SailPlane 
             var example = new SailPlane("3HC943", 1);
@@ -45,7 +55,6 @@ namespace Task2
 
             // Alowe to Get NumberOfSeats
             Assert.IsTrue(example.NumberOfSeats == 1);
-
 
         }
     }
