@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reactive.Subjects;
+using System.Reactive.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -68,6 +70,9 @@ namespace Task2
             };
             Console.WriteLine(JsonConvert.SerializeObject(planes, setting));
 
+            Console.WriteLine();
+            Console.WriteLine();
+
             var text = JsonConvert.SerializeObject(planes, setting);
             var desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             var filename = Path.Combine(desktop, "planes.json");
@@ -76,6 +81,32 @@ namespace Task2
             var textFromFile = File.ReadAllText(filename);
             var itemsFromFile = JsonConvert.DeserializeObject<IAircraft[]>(textFromFile, setting);
             foreach (var x in itemsFromFile) Console.WriteLine($"{x.PlaneNumber} {x.NumberOfSeats} ");
+
+
+
+
+            Console.WriteLine();
+            Console.WriteLine();
+            var producer = new Subject<Plane>();
+
+            producer.Subscribe(plane => Console.WriteLine($"received value {plane}"));
+
+            foreach (var x in planes)
+            {
+                System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+
+                if (x is Plane)
+                {
+                    Plane p = x as Plane;
+                    producer.OnNext(p); // push value i to subscribers
+                }
+                
+
+            }
+
+                
+
+
 
 
             Console.ReadLine();

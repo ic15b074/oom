@@ -26,7 +26,7 @@ namespace Task2
 
 
 
-        //funktion zu ausgabe von daten(die eigentlich privat ist)
+        //methode (funktion) zu ausgabe von daten(die eigentlich privat ist)
         public int ShowMaxFuelInfo()
         {
             return maxFuel;
